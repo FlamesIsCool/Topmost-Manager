@@ -28,7 +28,6 @@
         <ComboBox Grid.Row="2" x:Name="WindowListComboBox" Height="32"
                   DisplayMemberPath="Title"/>
 
-        <!-- Buttons with classic Margin instead of Spacing (works on all .NET versions) -->
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Make Topmost" Width="130" Height="36" Margin="0,0,12,0"
                     Click="MakeTopmost_Click" Background="#007ACC" Foreground="White" FontWeight="Bold"/>
