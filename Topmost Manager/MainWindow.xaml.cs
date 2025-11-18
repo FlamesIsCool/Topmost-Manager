@@ -45,9 +45,7 @@ namespace Topmost_Manager
             StatusText.Text = $"{windows.Count} windows detected • Ready";
         }
 
-        // ------------------------------------------------------------
         // Get all visible main windows
-        // ------------------------------------------------------------
         private static List<WindowInfo> GetAllWindows()
         {
             var list = new List<WindowInfo>();
@@ -69,7 +67,6 @@ namespace Topmost_Manager
                 try
                 {
                     var process = Process.GetProcessById((int)pid);
-                    // Prefer real main windows; fallback if MainWindowHandle is zero (some apps)
                     if (process.MainWindowHandle == hWnd || process.MainWindowHandle == IntPtr.Zero)
                     {
                         list.Add(new WindowInfo
@@ -95,9 +92,6 @@ namespace Topmost_Manager
         }
     }
 
-    // ------------------------------------------------------------
-    // Win32 API imports (clean and organized)
-    // ------------------------------------------------------------
     internal static class NativeMethods
     {
         public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
