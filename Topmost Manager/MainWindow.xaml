@@ -1,0 +1,45 @@
+﻿<Window x:Class="Topmost_Manager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Topmost_Manager"
+        mc:Ignorable="d"
+        Title="Topmost Manager" Height="230" Width="460"
+        Topmost="True"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Background="#2D2D30"
+        Foreground="White">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Select any running window and force it to stay on top!"
+                   FontSize="14" FontWeight="SemiBold"/>
+
+        <ComboBox Grid.Row="2" x:Name="WindowListComboBox" Height="32"
+                  DisplayMemberPath="Title"/>
+
+        <!-- Buttons with classic Margin instead of Spacing (works on all .NET versions) -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Make Topmost" Width="130" Height="36" Margin="0,0,12,0"
+                    Click="MakeTopmost_Click" Background="#007ACC" Foreground="White" FontWeight="Bold"/>
+            <Button Content="Remove Topmost" Width="140" Height="36" Margin="12,0"
+                    Click="RemoveTopmost_Click" Background="#555555" Foreground="White"/>
+            <Button Content="Refresh" Width="90" Height="36" Margin="12,0,0,0"
+                    Click="RefreshList_Click" Background="#444444" Foreground="White"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="5" x:Name="StatusText" HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom" Foreground="#999999" FontSize="11"
+                   Text="Tip: Run as Administrator to control elevated apps"/>
+    </Grid>
+</Window>
